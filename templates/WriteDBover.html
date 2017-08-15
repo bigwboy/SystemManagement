@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>完成</title>
+</head>
+<br>
+<body>
+<h2>写入信息</h2>
+<h3>读取校验文件信息</h3>
+<froms>
+{% for i in ReadErrorData %}
+    {% for j in i %}
+    {{ j }}
+    {% endfor %}<br>
+{% empty %}
+        <li>文件读取正常，无错误～！</li>
+{% endfor %}
+</froms>
+<h3>写入库信息</h3>
+重复域名：
+    <li>{{ returnrepeatedata }}</li><br>
+写入错误域名：
+{% for i in returnWriteErrorData %}
+    {{ i }}<br>
+{% empty %}
+        <li>录入无错误域名～！</li>
+{% endfor %}
+</body>
+</html>
