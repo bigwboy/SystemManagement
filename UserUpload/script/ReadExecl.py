@@ -88,7 +88,6 @@ def ReadExeclFile(file,tablename):
             row_list.append(rowValues)
     elif tablename == 'ApplicationTable':
         for i in range(1, ExeclRows):
-            errormsg = []
             rowValues = FileTable.row_values(i)
             row_list.append(rowValues)
     #返回信息 [[写入数据库数据],[查询错误数据]]
