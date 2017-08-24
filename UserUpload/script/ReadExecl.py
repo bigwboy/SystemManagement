@@ -86,6 +86,11 @@ def ReadExeclFile(file,tablename):
             rowValues[3] = region_id
             rowValues[4] = res_id
             row_list.append(rowValues)
+    elif tablename == 'ApplicationTable':
+        for i in range(1, ExeclRows):
+            errormsg = []
+            rowValues = FileTable.row_values(i)
+            row_list.append(rowValues)
     #返回信息 [[写入数据库数据],[查询错误数据]]
     returnData.append(row_list)
     returnData.append(NOTfind)
