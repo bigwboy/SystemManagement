@@ -9,13 +9,7 @@
 <h1>文件上传管理</h1>
 <form method="post" enctype="multipart/form-data" >
     <h2>文件名</h2>
-<tr><th><label for="id_TableName">Tablename:</label></th><td>
-    <select name="TableName">
-        <option value="ApplicationDomainTable">应用域名表</option>
-        <option value="cdnmanagementiptable">cp管理地址表</option>
-    </select>
-</td></tr>
-<tr><th><label for="id_UploadFile">Uploadfile:</label></th><td><input id="id_UploadFile" name="UploadFile" type="file" /></td></tr>
+{{uf.as_table}}
 <input type="submit" value="ok"/>
 
 </form>
