@@ -47,24 +47,25 @@ class ComputerRoomTable(models.Model):
     class Meta:
         verbose_name = '机房信息'
         verbose_name_plural = '机房信息'
-        ordering = ['']
+        #ordering = ['']
 
     def __unicode__(self):
-        return
+        return self.pub_date
 
 #服务器信息表
-class ServerMachineTable():
+class ServerMachineTable(models.Model):
 
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
     class Meta:
-        verbose_name = '机房信息'
-        verbose_name_plural = '机房信息'
-        ordering = ['']
+        verbose_name = '服务器信息'
+        verbose_name_plural = '服务器信息'
+        #ordering = ['']
 
     def __unicode__(self):
-        return
+        return self.pub_date
+
 
 #网络设备信息表
 class NetworkMachineTable(models.Model):
@@ -73,12 +74,12 @@ class NetworkMachineTable(models.Model):
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
     class Meta:
-        verbose_name = '机房信息'
-        verbose_name_plural = '机房信息'
-        ordering = ['']
+        verbose_name = '网络设备信息'
+        verbose_name_plural = '网络设备信息'
+        #ordering = ['']
 
     def __unicode__(self):
-        return
+        return self.pub_date
 
 #机柜信息表
 class CabinetTable(models.Model):
@@ -87,9 +88,9 @@ class CabinetTable(models.Model):
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
     class Meta:
-        verbose_name = '机房信息'
-        verbose_name_plural = '机房信息'
-        ordering = ['']
+        verbose_name = '机柜信息'
+        verbose_name_plural = '机柜信息'
+        #ordering = ['']
 
     def __unicode__(self):
-        return
+        return self.pub_date

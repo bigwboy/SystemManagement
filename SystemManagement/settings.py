@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'IPaddrmanagement',
     'Resourcesmanagement',
     'UserUpload',
+    'ComputerRoomManagerment',
     #'Returnchecklogmanagement',
 ]
 

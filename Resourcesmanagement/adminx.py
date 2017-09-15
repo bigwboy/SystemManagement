@@ -26,6 +26,7 @@ class GlobalSetting(object):
         'ipaddrmanagement': u'地址库管理',
         'returnchecklogmanagement':'返回日志',
         'userupload':'上传文件管理',
+        'computerroommanagerment':u'机房管理',
     }
 xadmin.site.register(xadmin.views.CommAdminView, GlobalSetting)
 
