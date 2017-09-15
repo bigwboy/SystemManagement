@@ -42,7 +42,7 @@ class PersonnelTatble(models.Model):
     CDN = models.ForeignKey('Resourcesmanagement.CDNTable')
     Name = models.CharField(u'姓名', max_length=40,unique=True)
     Phone = models.CharField(u'电话', max_length=40,null=True,blank=True)
-    QQNunmber = models.IntegerField(u'QQ号',null=True,unique=True,blank=True)
+    QQNunmber = models.BigIntegerField(u'QQ号',null=True,unique=True,blank=True)
     Email = models.EmailField(u'邮箱',null=True,blank=True)
     Remarks = models.TextField(u'备注',null=True,blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
