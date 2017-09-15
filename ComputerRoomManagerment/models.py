@@ -40,6 +40,8 @@ class CompressedTextField(models.TextField):
 
 #机房管理表
 class ComputerRoomTable(models.Model):
+    #机房位置
+    #联系电话
 
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
@@ -54,7 +56,15 @@ class ComputerRoomTable(models.Model):
 
 #服务器信息表
 class ServerMachineTable(models.Model):
-
+    #机器型号
+    #硬盘数
+    #端口数
+    #内存
+    #所属cdn
+    #网络端口
+    #链接的网络设备
+    #所在机柜
+    #备注
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -69,7 +79,10 @@ class ServerMachineTable(models.Model):
 
 #网络设备信息表
 class NetworkMachineTable(models.Model):
-
+    #所在机柜
+    #设备型号
+    #端口数
+    #备注
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -83,7 +96,7 @@ class NetworkMachineTable(models.Model):
 
 #机柜信息表
 class CabinetTable(models.Model):
-
+    #所属机房
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
