@@ -110,5 +110,5 @@ xadmin.site.register(restype, restypeXADMIN)
 
 #覆盖情况管理显示
 class CoverTableXADMIN(object):
-     list_display = ('Cover',)
+     list_display = ('cover',)
 xadmin.site.register(CoverTable, CoverTableXADMIN)
