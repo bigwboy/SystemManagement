@@ -1,7 +1,7 @@
 # coding=utf-8
 import xlrd
 import sys
-from Resourcesmanagement.models import CDNTable,ApplicationDomainTable,RegionTable,ApplicationTable,restype
+from Resourcesmanagement.models import CDNTable,ApplicationDomainTable,RegionTable,ApplicationTable,restype,CoverTable
 reload(sys)
 sys.setdefaultencoding('utf-8')
 from django import db
@@ -83,7 +83,7 @@ def ReadExeclFile(file,tablename):
 
             # 查询覆盖情况
             try:
-                cover_id = restype.objects.get(resoucescover=rowValues[5])
+                cover_id = CoverTable.objects.get(cover=rowValues[5])
             except Exception, e:
                 print e
                 errormsg.append(rowValues[5])
