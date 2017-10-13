@@ -23,7 +23,7 @@ def WriteDataToDB(WriteDBData,DBtable='ApplicationDomainTable' ):
     elif DBtable == 'ApplicationDomainTable':
         for i in WriteDBData:
             try:
-                appdomain=ApplicationDomainTable.objects.get_or_create(domain=i[0],app=i[1],region=i[3],res_type=i[4])
+                appdomain=ApplicationDomainTable.objects.get_or_create(domain=i[0],app=i[1],region=i[3],res_type=i[4],resoucescover=i[5])
                 if appdomain[1]:
                     appdomain[0].save()
                     writeDB+=1
