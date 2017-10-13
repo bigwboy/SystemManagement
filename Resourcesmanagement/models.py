@@ -91,6 +91,7 @@ class ApplicationDomainTable(models.Model):
     app = models.ForeignKey('ApplicationTable', verbose_name='应用')
     region = models.ForeignKey('RegionTable',verbose_name='域')
     res_type = models.ForeignKey('restype',verbose_name='类型')
+    resoucescover=models.ForeignKey('CoverTable', verbose_name='覆盖情况',null=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -149,3 +150,16 @@ class restype(models.Model):
 
    def __unicode__(self):
        return self.restype
+
+#覆盖情况表
+class CoverTable(models.Model):
+    Cover = models.CharField(u'覆盖情况', max_length=50)
+    pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
+    update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = '覆盖情况'
+        verbose_name_plural = '覆盖情况'
+
+    def __unicode__(self):
+        return self.Cover

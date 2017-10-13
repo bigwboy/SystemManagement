@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from .models import CDNTable,RegionTable,ApplicationTable,ApplicationDomainTable,ControlDomainTable,ControlIpTable
-from .models import restype
+from .models import restype,CoverTable
 import xadmin
 
 from xadmin import views
@@ -103,7 +103,12 @@ class ControlIpTableXAdmin(object):
     show_bookmarks = False
 xadmin.site.register(ControlIpTable, ControlIpTableXAdmin)
 
-
+#域名类型表管理显示
 class restypeXADMIN(object):
     list_display = ('restype',)
 xadmin.site.register(restype, restypeXADMIN)
+
+#覆盖情况管理显示
+class CoverTableXADMIN(object):
+     list_display = ('Cover',)
+xadmin.site.register(CoverTable, CoverTableXADMIN)
