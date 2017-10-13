@@ -80,11 +80,23 @@ def ReadExeclFile(file,tablename):
                 # 查找核对错误，[单条记录，错误信息]
                 NOTfind.append(errormsg)
                 continue
+
+            # 查询覆盖情况
+            try:
+                cover_id = restype.objects.get(resoucescover=rowValues[5])
+            except Exception, e:
+                print e
+                errormsg.append(rowValues[5])
+                errormsg.append('覆盖情况查找错误')
+                    # 查找核对错误，[单条记录，错误信息]
+                NOTfind.append(errormsg)
+                continue
             # 原有数据替换为数据库类型
             rowValues[1] = app_id
             rowValues[2] = cdn_id
             rowValues[3] = region_id
             rowValues[4] = res_id
+            rowValues[5] = cover_id
             row_list.append(rowValues)
     elif tablename == 'ApplicationTable':
         for i in range(1, ExeclRows):

@@ -79,9 +79,9 @@ xadmin.site.register(RegionTable,RegionTableXAdmin)
 class ApplicationDomainTableXAdmin(object):
     def CDN(self,ApplicationDomainTable):
         return  ApplicationDomainTable.region.CDN.CDN
-    list_display = ('domain','app','CDN','region','res_type',)
-    search_fields = ('domain','app__app','region__region',)
-    list_filter = ('res_type','region__CDN')
+    list_display = ('domain','app','CDN','region','res_type','resoucescover',)
+    search_fields = ('domain','app__app','region__region','resoucescover',)
+    list_filter = ('res_type','region__CDN','resoucescover',)
     #不显示书签
     show_bookmarks = False
 xadmin.site.register(ApplicationDomainTable,ApplicationDomainTableXAdmin)
