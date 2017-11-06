@@ -39,6 +39,7 @@ class CompressedTextField(models.TextField):
 #cdn表
 class CDNTable(models.Model):
     CDN = models.CharField(u'CDN名称', max_length=30)
+    CDN_Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 

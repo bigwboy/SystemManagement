@@ -46,7 +46,7 @@ class ApplicationDomainline(object):
 
 #cdn管理显示
 class CDNTableXAdmin(object):
-    list_display = ('CDN', 'pub_date', 'update_time',)
+    list_display = ('CDN', 'CDN_Remarks','pub_date', 'update_time',)
     search_fields = ('CDN',)
     inlines = [regioninline,ControlDomainline,ControlIpline]
     show_bookmarks = False
