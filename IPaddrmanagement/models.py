@@ -123,3 +123,17 @@ class NetTypeTable(models.Model):
 
     def __unicode__(self):
         return self.NetType
+
+class ServerIPTable(models.Model):
+    ServerAddress=models.CharField(u'服务ip',max_length=40)
+    CDN = models.ForeignKey('Resourcesmanagement.CDNTable')
+    Remarks = models.TextField(u'备注', null=True, blank=True)
+    pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
+    update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = '具体服务表'
+        verbose_name_plural = '具体服务表'
+
+    def __unicode__(self):
+        return self.ServerAddress
