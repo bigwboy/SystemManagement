@@ -1,6 +1,6 @@
 # coding=utf-8
 import xadmin
-from .models import WatoneExportIpTable,InternetResoucesTatble,CDNmanagementIpTable,BacktoSounceExportTable,NetTypeTable
+from .models import WatoneExportIpTable,InternetResoucesTatble,CDNmanagementIpTable,BacktoSounceExportTable,NetTypeTable,ServerIPTable
 
 #华通出口ip管理显示
 class WatoneExportIpTableXAdmin(object):
@@ -42,3 +42,10 @@ class NetTypeTableXAdmin(object):
     list_display = ('NetType','pub_date', 'update_time',)
     show_bookmarks = False
 xadmin.site.register(NetTypeTable, NetTypeTableXAdmin)
+
+#服务ip管理显示
+class ServerIPTableXAdmin(object):
+    list_display = ('ServerAddress','CDN','Remarks','pub_date', 'update_time',)
+    search_fields = ('ServerAddress', 'CDN')
+    show_bookmarks = False
+xadmin.site.register(ServerIPTable, ServerIPTableXAdmin)
