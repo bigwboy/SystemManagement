@@ -57,19 +57,16 @@ class ComputerRoomTable(models.Model):
 
 #服务器信息表
 class ServerMachineTable(models.Model):
-    #机器名称
     ManufacturersName=models.ForeignKey('EquipmentManufacturersTable')
     ManufacturersType=models.CharField(u'机器型号', max_length=100)
     SNNumber= models.CharField(u'SN号', max_length=100)
     DiskType = models.CharField(u'硬盘类型', max_length=20)
     DiskSize= models.CharField(u'硬盘大小', max_length=20)
-    #端口数
-    #内存
+    RAMSize=models.CharField(u'内存大小', max_length=20)
     CDN = models.ForeignKey('Resourcesmanagement.CDNTable')
-    #网络端口
-    #链接的网络设备
-    #所在机柜
-    #备注
+    CabinetName = models.ForeignKey('CabinetTable')
+    NetworkMachineName=models.ForeignKey('NetworkMachineTable')
+    Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -84,20 +81,20 @@ class ServerMachineTable(models.Model):
 
 #网络设备信息表
 class NetworkMachineTable(models.Model):
+    NetworkMachineName=models.CharField(u'机器名', max_length=100)
     CabinetName = models.ForeignKey('CabinetTable')
-    #设备型号
-    #端口数
+    NetworkMachineType=models.CharField(u'机器型号', max_length=100)
+    PortSize=models.CharField(u'端口数', max_length=100)
     Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
-
     class Meta:
         verbose_name = '网络设备信息'
         verbose_name_plural = '网络设备信息'
         #ordering = ['']
 
     def __unicode__(self):
-        return self.pub_date
+        return self.NetworkMachineName
 
 #机柜信息表
 class CabinetTable(models.Model):
@@ -115,6 +112,7 @@ class CabinetTable(models.Model):
 
     def __unicode__(self):
         return self.CabinetName
+
 #设备厂商表
 class EquipmentManufacturersTable(models.Model):
     ManufacturersName= models.CharField(u'厂商名称', max_length=40)
