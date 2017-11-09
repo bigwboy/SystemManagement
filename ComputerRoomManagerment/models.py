@@ -40,9 +40,10 @@ class CompressedTextField(models.TextField):
 
 #机房管理表
 class ComputerRoomTable(models.Model):
-    #机房位置
-    #联系电话
-
+    ComputerRoomName = models.CharField(u'机房名称', max_length=40)
+    ComputerRoomAddress = models.CharField(u'机房位置', max_length=200)
+    ComputerRoomPhone = models.CharField(u'联系电话', max_length=40)
+    Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -52,15 +53,19 @@ class ComputerRoomTable(models.Model):
         #ordering = ['']
 
     def __unicode__(self):
-        return self.pub_date
+        return self.ComputerRoomName
 
 #服务器信息表
 class ServerMachineTable(models.Model):
-    #机器型号
-    #硬盘数
+    #机器名称
+    ManufacturersName=models.ForeignKey('EquipmentManufacturersTable')
+    ManufacturersType=models.CharField(u'机器型号', max_length=100)
+    SNNumber= models.CharField(u'SN号', max_length=100)
+    DiskType = models.CharField(u'硬盘类型', max_length=20)
+    DiskSize= models.CharField(u'硬盘大小', max_length=20)
     #端口数
     #内存
-    #所属cdn
+    CDN = models.ForeignKey('Resourcesmanagement.CDNTable')
     #网络端口
     #链接的网络设备
     #所在机柜
@@ -79,10 +84,10 @@ class ServerMachineTable(models.Model):
 
 #网络设备信息表
 class NetworkMachineTable(models.Model):
-    #所在机柜
+    CabinetName = models.ForeignKey('CabinetTable')
     #设备型号
     #端口数
-    #备注
+    Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -96,7 +101,10 @@ class NetworkMachineTable(models.Model):
 
 #机柜信息表
 class CabinetTable(models.Model):
-    #所属机房
+    CabinetName = models.CharField(u'机柜名称', max_length=40)
+    ComputerRoomName = models.ForeignKey('ComputerRoomTable')
+    CabinetSize = models.CharField(u'机柜高度', max_length=40)
+    Remarks = models.TextField(u'备注', null=True, blank=True)
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
 
@@ -106,4 +114,18 @@ class CabinetTable(models.Model):
         #ordering = ['']
 
     def __unicode__(self):
-        return self.pub_date
+        return self.CabinetName
+#设备厂商表
+class EquipmentManufacturersTable(models.Model):
+    ManufacturersName= models.CharField(u'厂商名称', max_length=40)
+    Remarks = models.TextField(u'备注', null=True, blank=True)
+    pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable=True)
+    update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = '设备厂商'
+        verbose_name_plural = '设备厂商'
+        # ordering = ['']
+
+    def __unicode__(self):
+        return self.ManufacturersName
